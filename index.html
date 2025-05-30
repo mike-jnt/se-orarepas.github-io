@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SEÑOR AREPA </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-yellow-50 font-sans">
+
+  <!-- Navegación -->
+  <nav class="bg-yellow-400 p-4 flex justify-between items-center text-white font-bold text-lg">
+  <div class="flex items-center space-x-2">
+    <img src="imagenes/señora.png" alt="Logo Señor Arepa" class="w-20 h-20 rounded-full">
+    <span class="text-xl">SEÑOR AREPA</span>
+  </div>
+  <div class="space-x-4">
+    <button onclick="mostrarVentas()" class="hover:underline">Ventas</button>
+    <button onclick="imprimirVentasDelDia(true)" class="hover:underline">Ventas del Día</button>
+  </div>
+</nav>
+
+
+  <!-- Sección Productos -->
+  <main class="p-6">
+    <h2 class="text-2xl font-bold text-gray-700 mb-4">Menú</h2>
+    <div id="productos" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+     <!-- Comida -->
+<div class="bg-white p-4 rounded-xl shadow-md">
+  <h3 class="text-xl font-semibold text-yellow-600 mb-2">Comida</h3>
+  <div class="grid grid-cols-2 gap-2">
+
+    <button onclick="agregarProducto('PAISA', 16000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ PAISA - $16.000</button>
+
+    <button onclick="agregarProducto('CHICHARRON', 13000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ CHICHARRON - $13.000</button>
+
+    <button onclick="agregarProducto('EXTRA QUESILLO', 8000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ EXTRA QUESILLO - $8.000</button>
+
+    <button onclick="agregarProducto('SEÑOR AREPA', 13000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ SEÑOR AREPA - $13.000</button>
+
+    <button onclick="agregarProducto('SEÑORA AREPA', 13000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ SEÑORA AREPA - $13.000</button>
+
+    <button onclick="agregarProducto('HAWAIANA', 13000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ HAWAIANA - $13.000</button>
+
+    <button onclick="agregarProducto('MEGAPAISA', 21000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ MEGAPAISA- $21.000</button>
+
+    <button onclick="agregarProducto('MIXTA', 13000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ MIXTA - $13.000</button>
+
+    <button onclick="agregarProducto('RANCHERA', 13000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ RANCHERA - $13.000</button>
+
+    <button onclick="agregarProducto('SOLO POLLO', 14000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ SOLO POLLO - $14.000</button>
+
+    <button onclick="agregarProducto('SOLO CARNE', 14000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ SOLO CARNE - $14.000</button>
+
+    <button onclick="agregarProducto('MEXICANA', 14000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">⚪ MEXICANA - $14.000</button> 
+
+
+
+  </div>
+</div>
+
+     <!-- Adiciones -->
+<div class="bg-white p-4 rounded-xl shadow-md">
+  <h3 class="text-xl font-semibold text-yellow-600 mb-2">Adiciones</h3>
+  <div class="grid grid-cols-2 gap-2">
+    <button onclick="agregarProducto('Queso Extra', 5000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🧀 Queso Extra - $5.000</button>
+    
+    <button onclick="agregarProducto('MAIZ TIERNO', 3000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🌽 MAIZ TIERNO - $3.000</button>
+
+    <button onclick="agregarProducto('PIÑA CALADA', 5000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🍍 PIÑA CALADA - $5.000</button>
+
+    <button onclick="agregarProducto('POLLO', 6000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🍗 POLLO - $6.000</button>
+
+    <button onclick="agregarProducto('CARNE', 6000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥩 CARNE - $6.000</button>
+
+    <button onclick="agregarProducto('CHICHARRON', 5000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🍖 CHICHARRON - $5.000</button>
+
+    <button onclick="agregarProducto('RANCHERA', 6000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🔥 RANCHERA - $6.000</button>
+
+    <button onclick="agregarProducto('CHORIZO', 6000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🌭 CHORIZO - $6.000</button>
+
+    <button onclick="agregarProducto('TOCINETA', 6000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥓 TOCINETA - $6.000</button>
+
+    <button onclick="agregarProducto('MADURO', 3000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🍌  MADURO - $3.000</button>
+  </div>
+</div>
+
+      
+
+      <!-- Bebidas -->
+     <div class="bg-white p-4 rounded-xl shadow-md">
+         <h3 class="text-xl font-semibold text-yellow-600 mb-2">Bebidas</h3>
+        <div class="grid grid-cols-2 gap-2">
+
+           <button onclick="agregarProducto('QUATRO', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🍋 QUATRO - $4.000</button>
+
+           <button onclick="agregarProducto('COCA COLA', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 COCA COLA - $4.000</button>
+
+           <button onclick="agregarProducto('JUGO HIT', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 JUGO HIT - $4.000</button>
+
+           <button onclick="agregarProducto('SPRITE', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 SPRITE - $4.000</button>
+
+           <button onclick="agregarProducto('COCA COLA ZERO', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 COCA COLA CERO - $4.000</button>
+
+           <button onclick="agregarProducto('BRISA LIMON', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 BRISA LIMON - $4.000</button>
+
+           <button onclick="agregarProducto('BRISA MANZANA', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">💧 BRISA MANZANA - $4.000</button>
+
+           <button onclick="agregarProducto('FUZE TEA', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 FUZE TEA - $4.000</button>
+
+           <button onclick="agregarProducto('AGUA CON GAS', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 AGUA CON GAS - $4.000</button>
+
+           <button onclick="agregarProducto('AGUA SABORISADA', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 AGUA SABORISADA - $4.000</button>
+
+           <button onclick="agregarProducto('QUATRO 1.5L', 9000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 QUATRO 1.5L - $9.000</button>
+
+           <button onclick="agregarProducto('COCA COLA PREMIO 1.5L', 9000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 COCA COLA PREMIO 1.5L - $9.000</button>
+
+           <button onclick="agregarProducto('JUGO HIT 1.5L', 9000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 JUGO HIT 1.5L - $9.000</button>
+
+           <button onclick="agregarProducto('SPRITE 1.5L', 9000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 SPRITE 1.5L - $9.000</button>
+
+           <button onclick="agregarProducto('COCA COLA ZERO 1.5L', 9000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 COCA COLA ZERO 1.5L - $9.000</button>
+
+           <button onclick="agregarProducto(' AGUA', 3000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥤 AGUA - $3.000</button>
+
+           <button onclick="agregarProducto('MILO CALIENTE', 6000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🥛 MILO CALIENTE - $6.000</button>
+
+           <button onclick="agregarProducto('CAFE CON LECHE', 5000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">☕🥛 CAFE CON LECHE - $5.000</button>
+
+           <button onclick="agregarProducto('TINTO', 4000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">☕ TINTO - $4.000</button>
+
+           <button onclick="agregarProducto('CERVEZA', 6000)" class="bg-yellow-300 hover:bg-yellow-400 p-2 rounded">🍺 CERVEZA - $6.000</button>
+
+        </div>
+    </div>
+    </div>
+
+
+
+    <!-- Detalle de Pedido -->
+    <div class="mt-6 bg-white p-4 rounded-xl shadow-md">
+      <h3 class="text-lg font-semibold mb-4 border-b pb-2">🛒 Pedido Actual</h3>
+      <ul id="listaPedido" class="list-disc pl-5 text-gray-700 space-y-1"></ul>
+      <p id="total" class="mt-4 font-bold text-lg text-gray-800">Total: $0</p>
+    </div>
+
+    <!-- Cliente y forma de pago -->
+    <div class="mt-4 flex flex-col md:flex-row gap-4">
+      <input type="text" id="cliente" placeholder="Nombre del Cliente" class="flex-1 p-2 border border-yellow-300 rounded" />
+      <select id="formaPago" class="flex-1 p-2 border border-yellow-300 rounded">
+        <option value="">Seleccione forma de pago</option>
+        <option value="Efectivo">Efectivo</option>
+        <option value="Tarjeta">Tarjeta</option>
+        <option value="Transferencia">Transferencia</option>
+        <option value="Nequi/Daviplata">Nequi/Daviplata</option>
+      </select>
+    </div>
+
+    <!-- Tipo de pedido: Local o Domicilio -->
+<div class="mt-4">
+  <label for="tipoPedido" class="block text-sm font-medium text-gray-700">Tipo de Pedido</label>
+  <select id="tipoPedido" class="mt-1 p-2 border rounded w-full">
+    <option value="">Selecciona</option>
+    <option value="Aquí">Aquí</option>
+    <option value="Para llevar">Para llevar</option>
+    <option value="Domicilio">Domicilio</option>
+  </select>
+</div>
+
+
+    <!-- Botones de acción -->
+    <div class="mt-6 flex flex-wrap gap-2">
+      <button onclick="guardarVenta()" class="bg-green-500 hover:bg-green-600 text-white p-2 rounded">💾 Guardar Venta</button>
+      <button onclick="imprimirUltimaCocinero()" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded">🖨️ Imprimir para Cocina</button>
+      <button onclick="imprimirUltimaCliente()" class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded">🧾 Imprimir Recibo Cliente</button>
+      <button onclick="imprimirVentasDelDia(true)" class="bg-yellow-500 hover:bg-yellow-600 text-white p-2 rounded">🖨️ Imprimir Ventas de Hoy</button>
+      <button onclick="borrarVentas()" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded">🗑️ Borrar Ventas</button>
+      <button onclick="generarResumenProductos()" class="bg-indigo-500 hover:bg-indigo-600 text-white p-2 rounded">📊 Ver Resumen Productos</button>
+    </div>
+
+    <!-- Visualización de Ventas Guardadas -->
+    <div id="ventasSeccion" class="mt-8 bg-white p-4 rounded-xl shadow-md">
+  <h3 class="text-lg font-semibold mb-2">Ventas Guardadas</h3>
+  <table class="min-w-full text-left border">
+    <thead>
+      <tr class="bg-yellow-200">
+        <th class="p-2 border">#</th>
+        <th class="p-2 border">Fecha</th>
+        <th class="p-2 border">Cliente</th>
+        <th class="p-2 border">Forma de Pago</th>
+        <th class="p-2 border">Tipo de Pedido</th>
+        <th class="p-2 border">Productos</th>
+        <th class="p-2 border">Total</th>
+      </tr>
+    </thead>
+    <tbody id="ventasGuardadas" class="text-sm text-gray-800"></tbody>
+  </table>
+</div>
+
+    <!-- Resumen Productos -->
+    <div id="resumenProductos" class="mt-8 bg-white p-4 rounded-xl shadow-md hidden">
+      <h3 class="text-lg font-semibold mb-2">Resumen de Productos Vendidos</h3>
+      <ul id="listaResumen" class="list-disc pl-5 text-gray-700 space-y-1"></ul>
+    </div>
+  </main>
+
+  <script>
+    let pedido = [];
+    let total = 0;
+
+    // Agrega un producto al pedido y actualiza la vista
+    function agregarProducto(nombre, precio) {
+      pedido.push({ nombre, precio });
+      actualizarTotal();
+      actualizarVistaPedido();
+    }
+
+    // Quita un producto del pedido por índice
+    function quitarProducto(index) {
+      if (index >= 0 && index < pedido.length) {
+        pedido.splice(index, 1);
+        actualizarTotal();
+        actualizarVistaPedido();
+      }
+    }
+
+    // Recalcula el total sumando todos los precios
+    function actualizarTotal() {
+      total = pedido.reduce((acc, p) => acc + p.precio, 0);
+    }
+
+    // Actualiza la lista del pedido en la interfaz
+    function actualizarVistaPedido() {
+      const lista = document.getElementById("listaPedido");
+      lista.innerHTML = "";
+      pedido.forEach((p, i) => {
+        const li = document.createElement("li");
+        li.innerHTML = `${p.nombre} - $${p.precio} <button onclick="quitarProducto(${i})" class='text-red-600 ml-2'>❌</button>`;
+        lista.appendChild(li);
+      });
+      document.getElementById("total").textContent = `Total: $${total}`;
+    }
+
+    // Limpia el pedido y el formulario cliente/pago
+    function limpiarPedido() {
+      pedido = [];
+      total = 0;
+      actualizarVistaPedido();
+      document.getElementById("cliente").value = "";
+      document.getElementById("formaPago").value = "";
+    }
+
+    // Guarda la venta en localStorage y actualiza la vista de ventas
+    function guardarVenta() {
+  const cliente = document.getElementById("cliente").value.trim();
+  const formaPago = document.getElementById("formaPago").value;
+  const tipoPedido = document.getElementById("tipoPedido").value;
+
+  if (pedido.length === 0) {
+    alert("Agrega productos al pedido.");
+    return;
+  }
+  if (!cliente) {
+    alert("Por favor ingresa el nombre del cliente.");
+    return;
+  }
+  if (!formaPago) {
+    alert("Por favor selecciona una forma de pago.");
+    return;
+  }
+  if (!tipoPedido) {
+    alert("Por favor selecciona un tipo de pedido.");
+    return;
+  }
+
+  const venta = {
+    cliente,
+    formaPago,
+    tipoPedido,
+    pedido: [...pedido],
+    total,
+    fecha: new Date().toLocaleString()
+  };
+
+  const ventas = JSON.parse(localStorage.getItem("ventas")) || [];
+  ventas.push(venta);
+  localStorage.setItem("ventas", JSON.stringify(ventas));
+
+  alert("Venta guardada exitosamente.");
+  limpiarPedido();
+  mostrarVentas();
+  document.getElementById("resumenProductos").classList.add("hidden");
+}
+
+
+    // Muestra las ventas guardadas en la tabla
+    function mostrarVentas() {
+      const ventas = JSON.parse(localStorage.getItem("ventas")) || [];
+      const contenedor = document.getElementById("ventasGuardadas");
+      contenedor.innerHTML = "";
+      ventas.forEach((v, i) => {
+        const resumen = {};
+        v.pedido.forEach(p => {
+          resumen[p.nombre] = (resumen[p.nombre] || 0) + 1;
+        });
+        const productosResumen = Object.entries(resumen)
+          .map(([prod, cant]) => `${prod}: ${cant}`)
+          .join("<br>");
+        contenedor.innerHTML += `
+  <tr>
+    <td class='border p-1'>${i + 1}</td>
+    <td class='border p-1'>${v.fecha}</td>
+    <td class='border p-1'>${v.cliente}</td>
+    <td class='border p-1'>${v.formaPago}</td>
+    <td class='border p-1'>${v.tipoPedido || "N/A"}</td>
+    <td class='border p-1'>${productosResumen}</td>
+    <td class='border p-1'>$${v.total}</td>
+  </tr>
+`;
+      });
+    }
+
+     function borrarVentas() {
+    if (confirm("¿Estás seguro de borrar todas las ventas?")) {
+      // Borra del almacenamiento local
+      localStorage.removeItem("ventas");
+      
+      // Mensaje de confirmación
+      alert("Todas las ventas han sido eliminadas.");
+
+      // Actualiza la interfaz si la función existe
+      if (typeof mostrarVentas === "function") {
+        mostrarVentas();
+      }
+
+      // Oculta el resumen de productos si existe
+      const resumen = document.getElementById("resumenProductos");
+      if (resumen) {
+        resumen.classList.add("hidden");
+      }
+    }
+  }
+
+    // Genera un resumen de productos vendidos y lo muestra
+    function generarResumenProductos() {
+      const ventas = JSON.parse(localStorage.getItem("ventas")) || [];
+      const resumen = {};
+      ventas.forEach(v => {
+        v.pedido.forEach(p => {
+          resumen[p.nombre] = (resumen[p.nombre] || 0) + 1;
+        });
+      });
+      const lista = document.getElementById("listaResumen");
+      lista.innerHTML = "";
+      Object.entries(resumen).forEach(([producto, cantidad]) => {
+        const li = document.createElement("li");
+        li.textContent = `${producto}: ${cantidad}`;
+        lista.appendChild(li);
+      });
+      document.getElementById("resumenProductos").classList.remove("hidden");
+      document.getElementById("resumenProductos").scrollIntoView({ behavior: "smooth" });
+    }
+
+   function imprimirVentasDelDia(abrirVentana = false) {
+  const ventas = JSON.parse(localStorage.getItem("ventas")) || [];
+  if (ventas.length === 0) {
+    alert("No hay ventas registradas.");
+    return;
+  }
+
+  let totalGlobal = 0;
+  let contenido = `
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f8f9fa;
+        color: #333;
+      }
+      h2 {
+        text-align: center;
+        color: #444;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background-color: #343a40;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #e9ecef;
+      }
+      tfoot td {
+        font-weight: bold;
+        background-color: #fff3cd;
+      }
+    </style>
+
+    <h2>Ventas del Día</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Fecha</th>
+          <th>Cliente</th>
+          <th>Pago</th>
+          <th>Tipo de producto</th>
+          <th>Productos</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  ventas.forEach((v, i) => {
+    const resumen = {};
+    v.pedido.forEach(p => {
+      resumen[p.nombre] = (resumen[p.nombre] || 0) + 1;
+    });
+    const productosResumen = Object.entries(resumen)
+      .map(([prod, cant]) => `${prod}: ${cant}`)
+      .join("<br>");
+
+    totalGlobal += parseFloat(v.total) || 0;
+
+    contenido += `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${v.fecha}</td>
+        <td>${v.cliente}</td>
+        <td>${v.formaPago}</td>
+        <td>${v.tipodepedido}</td>
+        <td>${productosResumen}</td>
+        <td>$${parseFloat(v.total).toFixed(2)}</td>
+      </tr>
+    `;
+  });
+
+  contenido += `
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5" style="text-align: right;">TOTAL DEL DÍA:</td>
+          <td>$${totalGlobal.toFixed(2)}</td>
+        </tr>
+      </tfoot>
+    </table>
+  `;
+
+  if (abrirVentana) {
+    const w = window.open("", "_blank", "width=800,height=600");
+    w.document.write(`<html><head><title>Ventas del Día</title></head><body>${contenido}</body></html>`);
+    w.document.close();
+    w.focus();
+    w.print();
+  }
+}
+
+
+    // Borra todas las ventas guardadas
+    function imprimirUltimaCocinero() {
+  const ventas = JSON.parse(localStorage.getItem("ventas")) || [];
+  if (ventas.length === 0) {
+    alert("No hay ventas para imprimir.");
+    return;
+  }
+
+  const ultimaVenta = ventas[ventas.length - 1];
+  if (!ultimaVenta.pedido || !Array.isArray(ultimaVenta.pedido)) {
+    alert("La última venta no tiene productos válidos.");
+    return;
+  }
+
+  // Resumir productos
+  const resumen = {};
+  ultimaVenta.pedido.forEach(p => {
+    resumen[p.nombre] = (resumen[p.nombre] || 0) + 1;
+  });
+
+  // Estilos y contenido del recibo para cocina
+  const contenido = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        body {
+          font-family: monospace;
+          font-size: 14px;
+          margin: 0;
+          padding: 10px;
+        }
+        h2 {
+          text-align: center;
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+        .info {
+          margin-bottom: 10px;
+        }
+        .info p {
+          margin: 2px 0;
+        }
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        li {
+          padding: 4px 0;
+          border-bottom: 1px dashed #000;
+          font-size: 16px;
+        }
+      </style>
+    </head>
+    <body>
+      <h2>🧾 PEDIDO A COCINA</h2>
+      <div class="info">
+        <p><strong>Cliente:</strong> ${ultimaVenta.cliente || "Sin nombre"}</p>
+        <p><strong>Hora:</strong> ${ultimaVenta.fecha || "Sin hora"}</p>
+        <p><strong>Tipo de Pedido:</strong> ${ultimaVenta.tipoPedido || "-"}</p>
+      </div>
+      <ul>
+        ${Object.entries(resumen).map(([producto, cantidad]) => `<li>${producto} x${cantidad}</li>`).join("")}
+      </ul>
+      <p style="text-align: center; margin-top: 10px;">👨‍🍳 Preparar con cuidado</p>
+    </body>
+    </html>
+  `;
+
+  // Ventana para imprimir
+  const w = window.open("", "_blank", "width=400,height=600");
+  w.document.write(contenido);
+  w.document.close();
+  w.focus();
+  w.print();
+}
+
+
+
+    // Imprimir último recibo para cliente (simple)
+    function imprimirUltimaCliente() {
+  const ventas = JSON.parse(localStorage.getItem("ventas")) || [];
+  if (ventas.length === 0) {
+    alert("No hay ventas para imprimir.");
+    return;
+  }
+
+  const ultimaVenta = ventas[ventas.length - 1];
+
+  // Estilos para impresión térmica
+  let contenido = `
+    <html>
+      <head>
+        <title>Recibo Cliente</title>
+        <style>
+          body {
+            font-family: monospace;
+            font-size: 10px;
+            width: 58mm;
+            padding: 5px;
+          }
+          h2 {
+            text-align: center;
+            font-size: 12px;
+            margin: 5px 0;
+          }
+          .line {
+            border-top: 1px dashed #000;
+            margin: 5px 0;
+          }
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          li {
+            margin-bottom: 3px;
+          }
+          .total {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 8px;
+            font-size: 11px;
+          }
+          .info p {
+            margin: 2px 0;
+          }
+        </style>
+      </head>
+      <body>
+        <h2>SEÑOR AREPA</h2>
+        <div class="line"></div>
+        <div class="info">
+          <p><strong>Cliente:</strong> ${ultimaVenta.cliente || "N/A"}</p>
+          <p><strong>Fecha:</strong> ${ultimaVenta.fecha}</p>
+          <p><strong>Tipo de Pedido:</strong> ${ultimaVenta.tipoPedido || "-"}</p>
+        </div>
+        <div class="line"></div>
+        <ul>`;
+
+  ultimaVenta.pedido.forEach(p => {
+    contenido += `<li>${p.nombre} - $${p.precio}</li>`;
+  });
+
+  contenido += `
+        </ul>
+        <div class="line"></div>
+        <p class="total">Total: $${ultimaVenta.total}</p>
+        <div class="line"></div>
+        <p style="text-align:center;">¡Gracias por su compra!</p>
+      </body>
+    </html>`;
+
+  const w = window.open("", "_blank", "width=400,height=600");
+  w.document.write(contenido);
+  w.document.close();
+  w.focus();
+  w.print();
+}
+
+
+    window.onload = mostrarVentas;
+  </script>
+</body>
+</html>
